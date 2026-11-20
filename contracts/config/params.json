@@ -1,0 +1,53 @@
+{
+  "$comment": "Contract parameters (STRUCTURE.md, Contracts). Integers only; USDC amounts are whole USDC, scaled by the quote decimals in scripts. demoOverrides apply only when a deploy script is run with DEMO=true (Fuji demo).",
+  "treasury": "deployer",
+  "factory": {
+    "creationFeeUsdc": 5,
+    "minFirstBuyUsdc": 100,
+    "minAssets": 2,
+    "maxAssets": 20,
+    "minWeightBps": 100,
+    "tickerMinLen": 2,
+    "tickerMaxLen": 6
+  },
+  "vault": {
+    "tradeFeeBps": 50,
+    "deadUnitsWei": "10000000000000000",
+    "startLevelUsd": 100
+  },
+  "fees": {
+    "protocolBps": 30,
+    "creatorBps": 20
+  },
+  "rebalancer": {
+    "noticeSec": 172800,
+    "modeChangeDelaySec": 172800,
+    "driftBps": 5000,
+    "driftMinBps": 1000,
+    "driftMaxBps": 20000,
+    "intervalSec": 2592000,
+    "dailyCapBps": 500,
+    "lossBudgetBps": 100,
+    "maxDurationSec": 1209600,
+    "premiumBps": 50,
+    "floorBps": 200,
+    "auctionSec": 2700,
+    "lotCapBps": 100
+  },
+  "stockVenue": {
+    "spreadBps": 15,
+    "reserveRatioBps": 15000,
+    "seedReserveUsdc": 5000000
+  },
+  "tokenVenue": {
+    "seedInventoryUsd": 2000000,
+    "seedUsdc": 2000000
+  },
+  "swapRouter": {
+    "swapFeeBps": 10
+  },
+  "demoOverrides": {
+    "noticeSec": 600,
+    "modeChangeDelaySec": 600
+  }
+}

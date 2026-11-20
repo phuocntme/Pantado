@@ -1,0 +1,9 @@
+{
+  "/board": [
+    { "id": "nvda", "symbol": "NVDA", "name": "NVIDIA", "kind": "stock", "price": { "usd": 164.6, "ts": 1794680000, "source": "oracle", "fresh": true }, "change24h": 0.031, "change7d": -0.002, "change30d": 0.111 },
+    { "id": "amd", "symbol": "AMD", "name": "AMD", "kind": "stock", "price": { "usd": 158.4, "ts": 1794680000, "source": "oracle", "fresh": true }, "change24h": 0.026, "change7d": 0.014, "change30d": 0.098 },
+    { "id": "btcb", "symbol": "BTC.b", "name": "Bitcoin (Avalanche bridged)", "kind": "token", "price": { "usd": 65479.73, "ts": 1794680000, "source": "oracle", "fresh": true }, "change24h": 0.007, "change7d": 0.022, "change30d": 0.038 }
+  ],
+  "/assets/nvda": { "id": "nvda", "symbol": "NVDA", "displaySymbol": "NVDA", "name": "NVIDIA", "kind": "stock", "tier": 1, "badge": "Reference market: Robinhood Chain (on-chain)", "price": { "usd": 164.6, "ts": 1794680000, "source": "oracle", "fresh": true }, "risk": { "sizeCapUsd": 25000, "oiCapUsd": 250000, "spreadBps": 15 } },
+  "/presets?assets=nvda,amd,avgo,tsm,btcb&preset=equal": { "preset": "equal", "weights": [20, 20, 20, 20, 20] }
+}

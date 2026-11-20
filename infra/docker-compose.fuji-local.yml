@@ -1,0 +1,26 @@
+# The contest stack on this machine against the real Fuji deployment (contracts/deployments/fuji.json): every
+# service and keeper as on the VPS, without Caddy / TLS / domain. Test here first, then move the same .env to the VPS.
+#
+#   mkdir -p infra/.fuji-local && cp test/e2e-app/.market-history.json infra/.fuji-local/history.json   # optional: skip the history scan
+#   DOMAIN=localhost docker compose -f infra/docker-compose.contest.yml -f infra/docker-compose.fuji-local.yml --env-file .env up -d --build
+#
+# Web http://localhost:4002 · API http://localhost:3201 · Ask agent http://localhost:3202 · Prometheus http://localhost:9090
+# Keys, AUTO_FUND_SECRET, POSTGRES_PASSWORD, GRAFANA_ADMIN_PASSWORD and the agent's LLM key come from .env (Fuji-only wallets).
+services:
+  caddy:
+    profiles: ["public"] # no TLS / domain locally
+  grafana:
+    profiles: ["public"]
+  web:
+    build:
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:3201
+        NEXT_PUBLIC_AGENT_URL: http://localhost:3202
+    ports: ["127.0.0.1:4002:3000"]
+  api:
+    ports: ["127.0.0.1:3201:3001"]
+  agent:
+    ports: ["127.0.0.1:3202:3002"]
+  market-data:
+    # a host folder instead of the named volume, so the history read on this machine can be reused
+    volumes: !override ["./.fuji-local:/data"]

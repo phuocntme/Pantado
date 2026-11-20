@@ -1,0 +1,5 @@
+{
+  "_note": "USD per million tokens, used only to report eval cost. Prompts here stay under 100K tokens (Haiku 5.5's lower rate card).",
+  "claude-haiku-5-5": { "input": 0.1, "output": 0.5, "cacheRead": 0.01, "cacheWrite": 0.125 },
+  "claude-sonnet-5-5": { "input": 2, "output": 10, "cacheRead": 0.1, "cacheWrite": 2.5 }
+}

@@ -1,0 +1,36 @@
+# Spec §11.3. Thresholds mirror config/services.json (monitoring.*) and the asset maxAge.
+groups:
+  - name: pantado
+    rules:
+      - alert: IndexerLag
+        expr: pantado_indexer_lag_blocks > 20
+        for: 2m
+      - alert: PriceStale
+        expr: pusher_onchain_price_age_seconds > 3000
+        for: 1m
+        annotations: { summary: "On-chain price for {{ $labels.asset }} is close to its 3600 s maxAge" }
+      - alert: PriceSourcesDisagree
+        expr: pusher_deviation_alert == 1
+        for: 1m
+        annotations: { summary: "Canonical vs cross-check > deviationBps for {{ $labels.asset }}; not pushed" }
+      - alert: LevelMismatch
+        expr: pantado_level_mismatch == 1
+        for: 3m
+        annotations: { summary: "level(indexer) != level(IndexLens) for {{ $labels.ticker }}" }
+      - alert: AuctionLossNearBudget
+        expr: rebalance_loss_budget_used_ratio > 0.8
+      - alert: StockVenueReserveLow
+        expr: stock_venue_reserve_ratio_bps < 16000
+        annotations: { summary: "Stock venue reserve ratio below 160 %" }
+      - alert: KeeperLowAvax
+        expr: keeper_balance_avax < 0.1  # services.json monitoring.keeperMinAvax
+        annotations: { summary: "{{ $labels.keeper }} needs Fuji AVAX" }
+      - alert: ApiLatencyP95
+        expr: histogram_quantile(0.95, sum by (le) (rate(api_request_duration_seconds_bucket{route=~"/quote/.*"}[5m]))) > 0.15
+        for: 5m
+      - alert: ApiErrors
+        expr: sum(rate(api_request_duration_seconds_count{status=~"5.."}[5m])) / sum(rate(api_request_duration_seconds_count[5m])) > 0.02
+        for: 5m
+      - alert: ServiceDown
+        expr: up == 0
+        for: 2m

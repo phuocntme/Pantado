@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pantado intro</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+  /* 12 s opening of the demo video: 0–5 s the hook, 5–12 s the one-line pitch. Rendered by demo/video.ts. */
+  :root { --bg: #0B0B0D; --ink: #F2F2F3; --muted: #B4B4BB; --accent: #9052F9; --accent-2: #B794FF; }
+  html, body { margin: 0; width: 1920px; height: 1080px; cursor: none; overflow: hidden; background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; }
+  .stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .glow { position: absolute; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(144, 82, 249, 0.35) 0%, rgba(144, 82, 249, 0) 65%); opacity: 0; animation: glow 1.4s 2.2s ease-out forwards, fadeout 0.6s 4.6s forwards; }
+  .coin { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: #17171C; border: 2px solid #2A2A32; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
+  .coin img { width: 120px; height: 120px; object-fit: contain; border-radius: 50%; }
+  .c1 { animation: in1 0.9s 0.2s cubic-bezier(.2,.8,.2,1) both, merge1 0.8s 2.0s cubic-bezier(.6,0,.4,1) forwards; }
+  .c2 { animation: in2 0.9s 0.45s cubic-bezier(.2,.8,.2,1) both, merge2 0.8s 2.0s cubic-bezier(.6,0,.4,1) forwards; }
+  .c3 { animation: in3 0.9s 0.7s cubic-bezier(.2,.8,.2,1) both, merge3 0.8s 2.0s cubic-bezier(.6,0,.4,1) forwards; }
+  .token { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: linear-gradient(140deg, #6A2CE0, #9052F9 55%, #B794FF); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 120px rgba(144, 82, 249, 0.6); opacity: 0; transform: scale(0.3); animation: pop 0.7s 2.7s cubic-bezier(.2,1.4,.4,1) forwards, toTop 0.9s 4.7s cubic-bezier(.6,0,.3,1) forwards; }
+  .token svg { width: 150px; height: 112px; }
+  .q { position: absolute; bottom: 150px; width: 100%; text-align: center; font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 76px; letter-spacing: -0.02em; opacity: 0; animation: rise 0.7s 0.9s ease-out forwards, fadeout 0.5s 4.6s forwards; }
+  .q .hl { color: var(--accent-2); }
+  .pitch { position: absolute; top: 470px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+  .p1 { font-size: 46px; color: var(--muted); opacity: 0; animation: rise 0.7s 5.4s ease-out forwards; }
+  .p2 { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 84px; letter-spacing: -0.02em; text-align: center; line-height: 1.08; opacity: 0; animation: rise 0.8s 7.0s ease-out forwards; }
+  .p2 .hl { color: var(--accent-2); }
+  .word { position: absolute; top: 230px; opacity: 0; animation: rise 0.6s 5.2s ease-out forwards; }
+  .word img { height: 64px; }
+  .tag { position: absolute; bottom: 110px; width: 100%; text-align: center; font-size: 30px; font-weight: 600; letter-spacing: 0.14em; color: var(--accent-2); opacity: 0; animation: rise 0.6s 9.2s ease-out forwards; }
+  @keyframes in1 { from { opacity: 0; transform: translate(-900px, -40px) rotate(-30deg); } to { opacity: 1; transform: translate(-380px, -60px); } }
+  @keyframes in2 { from { opacity: 0; transform: translate(0, -700px); } to { opacity: 1; transform: translate(0, -110px); } }
+  @keyframes in3 { from { opacity: 0; transform: translate(900px, -40px) rotate(30deg); } to { opacity: 1; transform: translate(380px, -60px); } }
+  @keyframes merge1 { from { transform: translate(-380px, -60px); opacity: 1; } to { transform: translate(0, -60px) scale(0.4); opacity: 0; } }
+  @keyframes merge2 { from { transform: translate(0, -110px); opacity: 1; } to { transform: translate(0, -60px) scale(0.4); opacity: 0; } }
+  @keyframes merge3 { from { transform: translate(380px, -60px); opacity: 1; } to { transform: translate(0, -60px) scale(0.4); opacity: 0; } }
+  @keyframes pop { from { opacity: 0; transform: translateY(-60px) scale(0.3); } to { opacity: 1; transform: translateY(-60px) scale(1); } }
+  @keyframes toTop { from { opacity: 1; transform: translateY(-60px) scale(1); } to { opacity: 0; transform: translateY(-260px) scale(0.5); } }
+  @keyframes glow { from { opacity: 0; transform: translateY(-60px) scale(0.5); } to { opacity: 1; transform: translateY(-60px) scale(1); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeout { to { opacity: 0; } }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="glow"></div>
+  <div class="coin c1"><img src="LOGOS/nvda.png" alt="NVIDIA"></div>
+  <div class="coin c2"><img src="LOGOS/btcb.png" alt="Bitcoin"></div>
+  <div class="coin c3"><img src="LOGOS/wavax.png" alt="AVAX"></div>
+  <div class="token"><svg viewBox="10 14 324 241" aria-hidden="true"><path d="M94 16H238C291 16 331 60 331 113C331 166 291 206 240 206H213L219 200C247 195 267 176 267 153C267 126 247 104 221 104H94Z" fill="#F4F2FA"/><path d="M137 146V252H12V214C12 176 42 146 80 146Z" fill="#2A1458"/></svg></div>
+  <div class="q">What if NVIDIA, Bitcoin and AVAX were <span class="hl">one token?</span></div>
+  <div class="word"><img src="BRAND/wordmark.png" alt="pantado"></div>
+  <div class="pitch">
+    <div class="p1">Real-world assets are moving on-chain.</div>
+    <div class="p2">Any market narrative.<br><span class="hl">One index. One token.</span></div>
+  </div>
+  <div class="tag">AN AI AGENT FOR INDEXES · BUILT ON AVALANCHE</div>
+</div>
+<script>document.documentElement.style.zoom = String(window.innerWidth / 1920);</script>
+</body>
+</html>

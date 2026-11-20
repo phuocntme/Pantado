@@ -1,0 +1,36 @@
+/* Verbatim from reference/pantado-app.html. */
+html, body, #app { height: 100%; }
+body { margin: 0; background: #060607; color-scheme: dark; }
+body:not(.in) [data-when="in"], body.in [data-when="out"] { display: none !important; }
+body{margin:0}
+a{color:#F2F2F3;text-decoration:none}a:hover{color:#B18CFB}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #B18CFB;outline-offset:2px}
+summary::-webkit-details-marker{display:none}
+.scrolly{scrollbar-width:thin;scrollbar-color:#2A2A2F transparent}.scrolly::-webkit-scrollbar{width:8px}.scrolly::-webkit-scrollbar-track{background:transparent}.scrolly::-webkit-scrollbar-thumb{background:#2A2A2F;border-radius:4px}.scrolly::-webkit-scrollbar-thumb:hover{background:#3A3A40}
+textarea::placeholder,input::placeholder{color:#8E8E96}
+input[type=range]{accent-color:#9052F9}
+@media (max-width: 720px){
+.rail{flex:1 1 100% !important;flex-direction:row !important;justify-content:space-between !important;gap:4px !important;padding:0 !important}
+.rail a{margin:0 !important}
+.chats{display:none !important}
+.hide-sm{display:none !important}
+}
+.askbox:focus-within{border-color:#B18CFB!important}
+.askbox textarea:focus-visible,.askbox input:focus-visible{outline:none}
+
+/* Ask conversation (not in the reference): on wide screens the page fits the window like a chat app —
+   rail, chat list and header stay put, only the conversation scrolls and the ask box sits at its bottom. */
+@media (min-width: 721px){
+body.chatpage{overflow:hidden}
+body.chatpage div:has(> aside.chats){height:100vh;flex-wrap:nowrap!important;align-items:stretch}
+body.chatpage aside.chats{overflow-y:auto}
+body.chatpage div:has(> aside.chats) > main{min-height:0;overflow:hidden}
+body.chatpage main > div:has(> .convscroll){min-height:0;overflow:hidden}
+body.chatpage .convscroll{overflow-y:auto;min-height:0;max-height:100%;scrollbar-width:thin;scrollbar-color:#2A2A2F transparent}
+body.chatpage .convbox{position:sticky;bottom:12px;z-index:2;box-shadow:0 -24px 24px -8px #121214}
+}
+
+/* Create: the review and the result open at the bottom, under the "Review: … and buy" button the user
+   pressed, instead of above the form. <main> is a flex column, so only the order changes. */
+main > [aria-labelledby="cr-title"], main > [data-create-status] { order: 2; }

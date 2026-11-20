@@ -1,0 +1,87 @@
+{
+ "indexer": {
+  "confirmations": 0,
+  "acceptedOnly": true,
+  "batchBlocks": 2000
+ },
+ "marketData": {
+  "pushIntervalSec": 30,
+  "moveBps": 25,
+  "deviationBps": 200,
+  "minLiquidityUsd": 5000,
+  "stockTwapSec": 60,
+  "outlierSigma": 3,
+  "outlierWindow": 20,
+  "redisTtlSec": 10,
+  "referenceMaxAgeSec": 900,
+  "tokenWindowSec": 3600,
+  "history": {
+   "since": "2025-01-01",
+   "barSec": 900,
+   "minSwapUsd": 5,
+   "followSec": 60,
+   "saveEverySec": 300
+  },
+  "volume": {
+   "windowSec": 86400,
+   "quotePriority": [
+    "usdc",
+    "usdt",
+    "ausd",
+    "usde",
+    "wavax",
+    "btcb",
+    "wethe"
+   ]
+  }
+ },
+ "api": {
+  "cacheSec": 3,
+  "quoteMaxAgeBlocks": 2,
+  "rateLimitPerMin": 600,
+  "fundPerIpPerHour": 3,
+  "externalAggregatorTimeoutMs": 300
+ },
+ "presets": {
+  "marketCapCapPct": 40,
+  "lowVolLookbackDays": 90
+ },
+ "agent": {
+  "autoModelEnv": "AGENT_AUTO_MODEL",
+  "deepModelEnv": "AGENT_DEEP_MODEL",
+  "benchmark": "wavax",
+  "autoMaxSteps": 4,
+  "deepMaxSteps": 12,
+  "managerPollSec": 300,
+  "managerIndexes": [
+   "idx-cstk"
+  ],
+  "managerMinVersionIntervalSec": 604800,
+  "managerMinChangePct": 3
+ },
+ "keepers": {
+  "pricePusher": {
+   "tickSec": 5
+  },
+  "rebalanceTriggerPollSec": 60,
+  "auctionFiller": {
+   "pollSec": 15,
+   "minEdgeBps": 0,
+   "maxFillUsd": "100000"
+  },
+  "autoFund": {
+   "usdc": "10000",
+   "avax": "0",
+   "embeddedAvax": "0.005",
+   "privyJwksUrl": "https://auth.privy.io/api/v1/apps/{appId}/jwks.json",
+   "privyIssuer": "privy.io",
+   "oncePerWallet": true
+  }
+ },
+ "monitoring": {
+  "indexerLagAlertBlocks": 20,
+  "navToleranceWei": "1",
+  "reserveRatioAlertBps": 16000,
+  "keeperMinAvax": "0.1"
+ }
+}

@@ -1,0 +1,668 @@
+{
+ "$comment": "contest profile: data plane on mainnets (read-only), execution on Fuji. Secrets come from .env via *Env keys.",
+ "profile": "contest",
+ "data": {
+  "avalanche": {
+   "chainId": 43114,
+   "rpc": [
+    "https://avalanche-c-chain-rpc.publicnode.com",
+    "https://api.avax.network/ext/bc/C/rpc"
+   ],
+   "rpcEnv": [
+    "AVAX_RPC_URL_FALLBACK"
+   ],
+   "ws": [
+    "wss://api.avax.network/ext/bc/C/ws"
+   ],
+   "backfillDays": 30,
+   "maxLogRange": 100,
+   "maxLogAddresses": 10,
+   "chainlink": {
+    "AVAX/USD": {
+     "address": "0x0A77230d17318075983913bC2145DB16C7366156",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "BTC/USD": {
+     "address": "0x2779D32d5166BAaa2B2b658333bA7e6Ec0C65743",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "ETH/USD": {
+     "address": "0x976B3D034E162d8bD72D6b9C989d545b839003b0",
+     "decimals": 8,
+     "confirmed": true
+    }
+   },
+   "pools": [
+    {
+     "address": "0xFE15c2695F1F920da45C30AAE47d11dE51007AF9",
+     "dex": "uniswap-v2",
+     "token0": "wethe",
+     "token1": "wavax",
+     "history": "wethe",
+     "confirmed": true
+    },
+    {
+     "address": "0xf4003F4efBE8691B60249E6afbD307aBE7758adb",
+     "dex": "uniswap-v2",
+     "token0": "wavax",
+     "token1": "usdc",
+     "confirmed": true
+    },
+    {
+     "address": "0x7b602f98D71715916E7c963f51bfEbC754aDE2d0",
+     "dex": "uniswap-v3",
+     "token0": "wethe",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0xfAe3f424a0a47706811521E3ee268f00cFb5c45E",
+     "dex": "uniswap-v3",
+     "token0": "wavax",
+     "token1": "usdc",
+     "history": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x454E67025631C065d3cFAD6d71E6892f74487a15",
+     "dex": "uniswap-v2",
+     "token0": "joe",
+     "token1": "wavax",
+     "history": "joe",
+     "confirmed": true
+    },
+    {
+     "address": "0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+     "dex": "uniswap-v2",
+     "token0": "savax",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x7c05d54fc5CB6e4Ad87c6f5db3b807C94bB89c52",
+     "dex": "uniswap-v2",
+     "token0": "wethe",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x2fD81391E30805Cc7F2Ec827013ce86dc591B806",
+     "dex": "uniswap-v2",
+     "token0": "btcb",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x0e0100Ab771E9288e0Aa97e11557E6654C3a9665",
+     "dex": "uniswap-v2",
+     "token0": "wavax",
+     "token1": "usdc",
+     "confirmed": true
+    },
+    {
+     "address": "0x2E587b9E7aA638d7EB7DB5fe7447513bC4D0D28B",
+     "dex": "uniswap-v3",
+     "token0": "btcb",
+     "token1": "usdc",
+     "history": "btcb",
+     "confirmed": true
+    },
+    {
+     "address": "0x3bc40d4307cD946157447CD55d70ee7495bA6140",
+     "dex": "uniswap-v2",
+     "token0": "joe",
+     "token1": "usdc",
+     "confirmed": true
+    },
+    {
+     "address": "0xf01449C0bA930B6e2CaCA3DEF3CCBd7a3E589534",
+     "dex": "uniswap-v3",
+     "token0": "wavax",
+     "token1": "usdc",
+     "confirmed": true
+    },
+    {
+     "address": "0x5cA009013F6B898D134b6798B336A4592f3B4aF2",
+     "dex": "uniswap-v3",
+     "token0": "btcb",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x4224f6F4C9280509724Db2DbAc314621e4465C29",
+     "dex": "liquidity-book",
+     "token0": "btcb",
+     "token1": "usdc",
+     "binStep": 10,
+     "confirmed": true
+    },
+    {
+     "address": "0xFf0855A9027f5F5c2bbaCC4aAC477AfbeeefbeA9",
+     "dex": "uniswap-v3",
+     "token0": "wethe",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+     "dex": "liquidity-book",
+     "token0": "savax",
+     "token1": "wavax",
+     "binStep": 5,
+     "history": "savax",
+     "confirmed": true
+    },
+    {
+     "address": "0x804226cA4EDb38e7eF56D16d16E92dc3223347A0",
+     "dex": "uniswap-v3",
+     "token0": "usdt",
+     "token1": "usdc",
+     "history": "usdt",
+     "confirmed": true
+    },
+    {
+     "address": "0x16888EE58E706C253b821EAA637ae9b2cFeA255C",
+     "dex": "liquidity-book",
+     "token0": "usdt",
+     "token1": "usdc",
+     "binStep": 1,
+     "confirmed": true
+    },
+    {
+     "address": "0x975d4286bdB7b2989C8129f0B7C1299b166A11b3",
+     "dex": "uniswap-v3",
+     "token0": "usdc",
+     "token1": "eurc",
+     "history": "eurc",
+     "confirmed": true
+    },
+    {
+     "address": "0x65f83CCacaBaAC4eD2f80289A02dF4D35d744aE8",
+     "dex": "uniswap-v2",
+     "token0": "usdc",
+     "token1": "eurc",
+     "confirmed": true
+    },
+    {
+     "address": "0x0AFdEE8162CcEAD9AC6a30c94F691E6E7d1af670",
+     "dex": "uniswap-v2",
+     "token0": "phar",
+     "token1": "wavax",
+     "history": "phar",
+     "confirmed": true
+    },
+    {
+     "address": "0x1b7bCd44E77ADBb31BEa105842139d78f352Dc81",
+     "dex": "uniswap-v2",
+     "token0": "phar",
+     "token1": "usdc",
+     "confirmed": true
+    },
+    {
+     "address": "0x8573F98175D816d520248B5fACF40D309B1c9ceE",
+     "dex": "liquidity-book",
+     "token0": "ausd",
+     "token1": "usdc",
+     "binStep": 1,
+     "history": "ausd",
+     "confirmed": true
+    },
+    {
+     "address": "0x833E0fF43A8691F623Cb8730DDB3e3180c7dE08B",
+     "dex": "uniswap-v3",
+     "token0": "usde",
+     "token1": "usdc",
+     "history": "usde",
+     "confirmed": true
+    },
+    {
+     "address": "0xd5a37dC5C9A396A03dd1136Fc76A1a02B1c88Ffa",
+     "dex": "uniswap-v2",
+     "token0": "wbtce",
+     "token1": "wavax",
+     "history": "wbtce",
+     "confirmed": true
+    },
+    {
+     "address": "0x5764b8D8039C6E32f1e5d8DE8Da05DdF974EF5D3",
+     "dex": "uniswap-v2",
+     "token0": "wbtce",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x9d848CF080c46b92B797218835aE7E89e04c1515",
+     "dex": "uniswap-v2",
+     "token0": "super",
+     "token1": "usdc",
+     "history": "super",
+     "confirmed": true
+    },
+    {
+     "address": "0x15C5133F63C4914d4e151Cbf4BabFc8F51707477",
+     "dex": "uniswap-v2",
+     "token0": "super",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x41aB86EEcBd110a82cA602D032a461f453066F1E",
+     "dex": "uniswap-v2",
+     "token0": "coq",
+     "token1": "wavax",
+     "history": "coq",
+     "confirmed": true
+    },
+    {
+     "address": "0x0D9Fd6dd9b1FF55fB0A9bB0e5f1B6a2D65b741A3",
+     "dex": "uniswap-v2",
+     "token0": "usdc",
+     "token1": "black",
+     "history": "black",
+     "confirmed": true
+    },
+    {
+     "address": "0x14e4A5beD2e5E688EE1A5Ca3a4914250D1aBD573",
+     "dex": "uniswap-v2",
+     "token0": "wavax",
+     "token1": "black",
+     "confirmed": true
+    },
+    {
+     "address": "0xc3e6D9f7a3A5E3e223356383C7C055Ee3F26A34F",
+     "dex": "uniswap-v2",
+     "token0": "aavee",
+     "token1": "wavax",
+     "history": "aavee",
+     "confirmed": true
+    },
+    {
+     "address": "0x78e5E1dbb5f663B21aF2B6969E1Be2892A91297D",
+     "dex": "uniswap-v2",
+     "token0": "usdc",
+     "token1": "xava",
+     "history": "xava",
+     "confirmed": true
+    },
+    {
+     "address": "0x42152bDD72dE8d6767FE3B4E17a221D6985E8B25",
+     "dex": "uniswap-v2",
+     "token0": "wavax",
+     "token1": "xava",
+     "confirmed": true
+    },
+    {
+     "address": "0x2774516897AC629aD3ED9dCac7e375Dda78412b9",
+     "dex": "uniswap-v2",
+     "token0": "qi",
+     "token1": "wavax",
+     "history": "qi",
+     "confirmed": true
+    },
+    {
+     "address": "0xE530dC2095Ef5653205CF5ea79F8979a7028065c",
+     "dex": "uniswap-v2",
+     "token0": "qi",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0xd7538cABBf8605BdE1f4901B47B8D42c61DE0367",
+     "dex": "uniswap-v2",
+     "token0": "png",
+     "token1": "wavax",
+     "history": "png",
+     "confirmed": true
+    },
+    {
+     "address": "0xfc2bb1598deF8283ee36718f9ADC0A721FB2E722",
+     "dex": "uniswap-v3",
+     "token0": "png",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0x3C5f68d2F72DEBBa4900c60f32EB8629876401f2",
+     "dex": "uniswap-v2",
+     "token0": "wavax",
+     "token1": "arena",
+     "history": "arena",
+     "confirmed": true
+    },
+    {
+     "address": "0xFBF6ddAB432771F3445002437EDee8035bf8c18a",
+     "dex": "uniswap-v3",
+     "token0": "wavax",
+     "token1": "arena",
+     "confirmed": true
+    },
+    {
+     "address": "0xC725819a7c2A5d3DA243e02eb886b4C5f2B4dc6A",
+     "dex": "uniswap-v2",
+     "token0": "wavax",
+     "token1": "frax",
+     "history": "frax",
+     "confirmed": true
+    },
+    {
+     "address": "0x87Dee1cC9FFd464B79e058ba20387c1984aed86a",
+     "dex": "uniswap-v2",
+     "token0": "wavax",
+     "token1": "daie",
+     "history": "daie",
+     "confirmed": true
+    },
+    {
+     "address": "0xA7141C79d3d4a9ad67bA95D2b97Fe7EeD9fB92B3",
+     "dex": "uniswap-v3",
+     "token0": "usdc",
+     "token1": "daie",
+     "confirmed": true
+    },
+    {
+     "address": "0xB674f93952F02F2538214D4572Aa47F262e990Ff",
+     "dex": "uniswap-v2",
+     "token0": "gohm",
+     "token1": "wavax",
+     "history": "gohm",
+     "confirmed": true
+    },
+    {
+     "address": "0x781655d802670bbA3c89aeBaaEa59D3182fD755D",
+     "dex": "uniswap-v2",
+     "token0": "mim",
+     "token1": "wavax",
+     "history": "mim",
+     "confirmed": true
+    },
+    {
+     "address": "0xB605111323c92ac8166821CEA1Fe64C529771B9A",
+     "dex": "uniswap-v2",
+     "token0": "beam",
+     "token1": "usdc",
+     "history": "beam",
+     "confirmed": true
+    },
+    {
+     "address": "0x6F3a0C89f611Ef5dC9d96650324ac633D02265D3",
+     "dex": "uniswap-v2",
+     "token0": "linke",
+     "token1": "wavax",
+     "history": "linke",
+     "confirmed": true
+    },
+    {
+     "address": "0xEB7e0191f4054868D97F33CA7a4176b226cCBd2F",
+     "dex": "uniswap-v3",
+     "token0": "linke",
+     "token1": "wavax",
+     "confirmed": true
+    },
+    {
+     "address": "0xf0f633fA7bbcEd625aA72c679491B5DF17A4664c",
+     "dex": "liquidity-book",
+     "token0": "spcm",
+     "token1": "usdc",
+     "binStep": 100,
+     "history": "spcm",
+     "confirmed": true
+    },
+    {
+     "address": "0x9BA9C677D19347aBfbA1d6B6d6ceB61942071561",
+     "dex": "uniswap-v3",
+     "token0": "nya",
+     "token1": "wavax",
+     "history": "nya",
+     "confirmed": true
+    },
+    {
+     "address": "0x5E6b9feB24Eb1Cc1B71c5C0E3CD601570A5E5dB6",
+     "dex": "uniswap-v3",
+     "token0": "wavax",
+     "token1": "peak",
+     "history": "peak",
+     "confirmed": true
+    },
+    {
+     "address": "0x7D94f880736c2558e039e573B9a8fe230D60297e",
+     "dex": "liquidity-book",
+     "token0": "p33",
+     "token1": "wavax",
+     "binStep": 25,
+     "history": "p33",
+     "confirmed": true
+    },
+    {
+     "address": "0x49f17431f33c640F1E9a8a16bAb65103F5748Fe3",
+     "dex": "uniswap-v3",
+     "token0": "p33",
+     "token1": "usdc",
+     "confirmed": true
+    },
+    {
+     "address": "0x2D38BDE22e044Ea59688Ca7Cdd4f0B5307CC519A",
+     "dex": "uniswap-v2",
+     "token0": "nochill",
+     "token1": "wavax",
+     "history": "nochill",
+     "confirmed": true
+    },
+    {
+     "address": "0x03a5888726667FfF1E753fc06B51Dd1245e7371a",
+     "dex": "uniswap-v2",
+     "token0": "kimbo",
+     "token1": "wavax",
+     "history": "kimbo",
+     "confirmed": true
+    },
+    {
+     "address": "0xb3dC87Bd570d8dEAa960763234Ef3d93Cc789E6c",
+     "dex": "liquidity-book",
+     "token0": "folks",
+     "token1": "wavax",
+     "binStep": 25,
+     "history": "folks",
+     "confirmed": true
+    },
+    {
+     "address": "0x98240feF612ecFD84830B210a544e9A906C48199",
+     "dex": "uniswap-v3",
+     "token0": "usdt",
+     "token1": "mqt",
+     "history": "mqt",
+     "confirmed": true
+    },
+    {
+     "address": "0x55C211BBE9f63059a4A5A5E0c558c7e410412d98",
+     "dex": "liquidity-book",
+     "token0": "solvbtc",
+     "token1": "btcb",
+     "binStep": 2,
+     "history": "solvbtc",
+     "confirmed": true
+    },
+    {
+     "address": "0x259Dc723D93DA1D82D10ed75F3751CD3d3B6D7Fa",
+     "dex": "uniswap-v3",
+     "token0": "xaut0",
+     "token1": "usdt",
+     "history": "xaut0",
+     "confirmed": true
+    }
+   ],
+   "historyLogRange": 50000,
+   "timeAnchorBlocks": 500
+  },
+  "robinhood": {
+   "chainId": 4663,
+   "rpc": [
+    "https://rpc.mainnet.chain.robinhood.com"
+   ],
+   "rpcEnv": [
+    "ROBINHOOD_RPC_URL_FALLBACK"
+   ],
+   "ws": [],
+   "backfillDays": 30,
+   "maxLogRange": 10000,
+   "maxLogAddresses": 50,
+   "explorer": "https://robinhoodchain.blockscout.com",
+   "role": "stock reference market (display + canonical stock price)",
+   "chainlink": {
+    "NVDA/USD": {
+     "address": "0x379EC4f7C378F34a1B47E4F3cbeBCbAC3E8E9F15",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "SPCX/USD": {
+     "address": "0xB265810950ba6c5C0Ff821c9963014a56fD8Bffb",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "AAPL/USD": {
+     "address": "0x6B22A786bAa607d76728168703a39Ea9C99f2cD0",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "MSFT/USD": {
+     "address": "0x45C3C877C15E6BA2EBB19eA114Ea508d14C1Af2E",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "GOOGL/USD": {
+     "address": "0xF6f373a037c30F0e5010d854385cA89185AE638b",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "AMZN/USD": {
+     "address": "0xD5a1508ceD74c084eBf3cBe853e2C968fB2a651C",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "META/USD": {
+     "address": "0x7C38C00C30BEe9378381E7B6135d7283356D71b1",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "TSLA/USD": {
+     "address": "0x4A1166a659A55625345e9515b32adECea5547C38",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "AMD/USD": {
+     "address": "0x943A29E7ae51A4798823ca9eEd2ed533B2A22C72",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "TSM/USD": {
+     "address": "0x874cF94aa8eC88Fd9560094dD065f2fB3E41Fc2F",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "MSTR/USD": {
+     "address": "0x396118bdFB181e6240E74D243F266B061c0edc3D",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "COIN/USD": {
+     "address": "0xA3a468A452940B7D6b69991207B508c609a98Ef2",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "PLTR/USD": {
+     "address": "0x820ABedFF239034956B7A9d2F0a331f9F075eB4c",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "CRCL/USD": {
+     "address": "0x6652eDf64bA3731C4F2D3ce821A0Fb1f1f6b482a",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "MU/USD": {
+     "address": "0x425EEFdCf05ed6526C3cE61Af99429A228a6d596",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "DELL/USD": {
+     "address": "0x1C6c8cADBe02E19129c39dDB92281cE4c0bf206b",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "BABA/USD": {
+     "address": "0x62Cc8F9b5f56a33c9C8A60c8B92779f523c4E984",
+     "decimals": 8,
+     "confirmed": true
+    },
+    "GME/USD": {
+     "address": "0x27C71df6A64fB476468EdF256CF72c038baB5B67",
+     "decimals": 8,
+     "confirmed": true
+    }
+   },
+   "referenceQuote": {
+    "symbol": "USDG",
+    "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "decimals": 6,
+    "confirmed": true
+   },
+   "historyLogRange": 100000,
+   "timeAnchorBlocks": 10000,
+   "historyParallel": 1
+  }
+ },
+ "execution": {
+  "network": "fuji",
+  "chainId": 43113,
+  "rpc": [
+   "https://api.avax-test.network/ext/bc/C/rpc",
+   "https://avalanche-fuji-c-chain-rpc.publicnode.com"
+  ],
+  "rpcEnv": [
+   "FUJI_RPC_URL_FALLBACK"
+  ],
+  "ws": [
+   "wss://api.avax-test.network/ext/bc/C/ws"
+  ],
+  "deployments": "contracts/deployments/fuji.json",
+  "quote": "usdc",
+  "explorer": "https://testnet.snowtrace.io",
+  "maxLogRange": 100,
+  "maxRequestsPerSecond": 4,
+  "rpcPools": {
+   "indexer": [
+    {
+     "url": "https://api.avax-test.network/ext/bc/C/rpc",
+     "rps": 2
+    },
+    {
+     "url": "https://avalanche-fuji.gateway.tenderly.co",
+     "rps": 8
+    }
+   ],
+   "reads": [
+    "https://avalanche-fuji-c-chain-rpc.publicnode.com",
+    "https://avalanche-fuji.drpc.org"
+   ]
+  }
+ },
+ "venues": {
+  "stock": "stock-venue",
+  "token": "token-venue"
+ },
+ "priceSource": {
+  "pusher": "market-data",
+  "stockReference": "robinhood",
+  "stockCrossCheck": "stock-api"
+ },
+ "flags": {
+  "showFujiBadge": true,
+  "showReferenceBadge": true,
+  "gasSponsorship": true,
+  "usBlock": false,
+  "externalAggregators": false,
+  "agentManager": true,
+  "autoFundOnSignIn": true
+ }
+}

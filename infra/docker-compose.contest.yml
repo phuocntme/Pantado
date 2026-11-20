@@ -1,0 +1,157 @@
+# Contest stack (spec §11.1): one VPS, Cloudflare in front of Caddy.
+#   docker compose -f infra/docker-compose.contest.yml --env-file .env up -d --build
+# Secrets come from .env (see .env.example). Execution: Fuji; data plane: Avalanche + Robinhood Chain mainnets.
+name: pantado
+
+x-node: &node
+  restart: unless-stopped
+  env_file:
+    - path: ../.env
+      required: false
+  environment: &env
+    PANTADO_PROFILE: contest
+    REDIS_URL: redis://redis:6379
+    LOG_LEVEL: info
+  networks: [internal]
+  logging: { driver: json-file, options: { max-size: "20m", max-file: "5" } }
+
+services:
+  caddy:
+    image: caddy:2.10
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    networks: [internal]
+    depends_on: [web, api, agent]
+
+  web:
+    build:
+      context: ..
+      dockerfile: apps/web/Dockerfile
+      args:
+        PANTADO_PROFILE: contest
+        NEXT_PUBLIC_API_URL: https://api.${DOMAIN}
+        NEXT_PUBLIC_AGENT_URL: https://agent.${DOMAIN}
+        NEXT_PUBLIC_PRIVY_APP_ID: ${NEXT_PUBLIC_PRIVY_APP_ID:-}
+    <<: *node
+
+  api:
+    build: { context: .., dockerfile: services/api/Dockerfile }
+    <<: *node
+    environment:
+      <<: *env
+      PORT: "3001"
+      INDEXER_URL: http://indexer:42069
+      MARKET_DATA_URL: http://market-data:8080
+      AUTO_FUND_URL: http://auto-fund:9104
+    depends_on: [indexer, market-data, redis]
+
+  market-data:
+    build: { context: .., dockerfile: services/market-data/Dockerfile }
+    <<: *node
+    environment: { <<: *env, PORT: "8080", HEALTH_PORT: "9105", HISTORY_FILE: /data/history.json }
+    # 90-day hourly price history (candles, board changes); kept across restarts so it is read from the chains once
+    volumes: ["market_history:/data"]
+    depends_on: [redis]
+
+  indexer:
+    build: { context: .., dockerfile: services/indexer/Dockerfile }
+    <<: *node
+    environment:
+      <<: *env
+      DATABASE_URL: postgres://pantado:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}@postgres:5432/pantado
+      DATABASE_SCHEMA: pantado
+    command: ["pnpm", "start", "--port", "42069"]
+    # localhost only: reachable through an SSH tunnel for check-level / acceptance, never public
+    ports: ["127.0.0.1:42069:42069"]
+    depends_on: [postgres]
+
+  agent:
+    build: { context: .., dockerfile: services/agent/Dockerfile }
+    <<: *node
+    environment: { <<: *env, PORT: "3002", API_URL: http://api:3001 }
+    depends_on: [api, redis]
+
+  price-pusher:
+    build: { context: .., dockerfile: keepers/price-pusher/Dockerfile }
+    <<: *node
+    environment: { <<: *env, PORT: "9101", MARKET_DATA_URL: http://market-data:8080 }
+    depends_on: [market-data]
+
+  rebalance-trigger:
+    build: { context: .., dockerfile: keepers/rebalance-trigger/Dockerfile }
+    <<: *node
+    environment: { <<: *env, PORT: "9102" }
+
+  auction-filler:
+    build: { context: .., dockerfile: keepers/auction-filler/Dockerfile }
+    <<: *node
+    environment: { <<: *env, PORT: "9103" }
+
+  auto-fund:
+    build: { context: .., dockerfile: keepers/auto-fund/Dockerfile }
+    <<: *node
+    environment: { <<: *env, PORT: "9104", HEALTH_PORT: "9114" }
+    depends_on: [redis]
+
+  monitor:
+    build: { context: .., dockerfile: scripts/Dockerfile }
+    <<: *node
+    environment: { <<: *env, PORT: "9110", INDEXER_URL: http://indexer:42069 }
+    depends_on: [indexer]
+
+  postgres:
+    image: timescale/timescaledb:2.21.3-pg17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pantado
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: pantado
+    volumes: [pg_data:/var/lib/postgresql/data]
+    networks: [internal]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U pantado"], interval: 10s, retries: 10 }
+
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: [redis_data:/data]
+    networks: [internal]
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prom_data:/prometheus
+    ports: ["127.0.0.1:9090:9090"]
+    networks: [internal]
+
+  grafana:
+    image: grafana/grafana:12.1.0
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?set GRAFANA_ADMIN_PASSWORD}
+      GF_SERVER_ROOT_URL: https://grafana.${DOMAIN}
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    networks: [internal]
+    depends_on: [prometheus]
+
+networks:
+  internal: {}
+
+volumes:
+  market_history: {}
+  caddy_data: {}
+  pg_data: {}
+  redis_data: {}
+  prom_data: {}
+  grafana_data: {}

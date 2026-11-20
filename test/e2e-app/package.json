@@ -1,0 +1,26 @@
+{
+  "name": "@pantado/e2e-app",
+  "version": "0.1.0",
+  "private": true,
+  "author": "phuocntme",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "e2e:anvil": "playwright test",
+    "stack:anvil": "tsx stack.ts",
+    "typecheck": "tsc --noEmit",
+    "acceptance": "tsx acceptance.ts"
+  },
+  "dependencies": {
+    "@pantado/sdk": "workspace:*",
+    "@pantado/service-kit": "workspace:*",
+    "@pantado/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "viem": "^2.57.19"
+  }
+}

@@ -1,0 +1,21 @@
+# TLS terminates at Caddy (Cloudflare proxied in front). Hosts: app, api, agent, grafana.
+{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy web:3000
+}
+
+api.{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy api:3001
+}
+
+agent.{$DOMAIN} {
+	# SSE: no buffering
+	reverse_proxy agent:3002 {
+		flush_interval -1
+	}
+}
+
+grafana.{$DOMAIN} {
+	reverse_proxy grafana:3000
+}

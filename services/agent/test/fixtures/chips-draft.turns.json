@@ -1,0 +1,10 @@
+[
+  {
+    "stop": "tool_use",
+    "content": [
+      { "type": "text", "text": "Here is an AI chips basket with some BTC." },
+      { "type": "tool_call", "id": "t1", "name": "draft_index", "input": { "name": "AI Chips + BTC", "ticker": "chipb", "description": "Chip makers plus a BTC sleeve", "components": ["NVDA", "AMD", "AVGO", "TSM", "BTC.b"], "preset": "equal", "mode": "Auto", "driftPct": 20, "rationale": "Equal weight across four chip leaders and BTC." } }
+    ]
+  },
+  { "stop": "end", "content": [{ "type": "text", "text": " Review it in Create and sign when ready." }] }
+]

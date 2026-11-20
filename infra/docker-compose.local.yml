@@ -1,0 +1,63 @@
+# Local smoke of the contest images against an Anvil chain on the host (no Fuji, no domain).
+#   1. STACK_KEEPER_ROLES=1 STACK_WEB=0 pnpm --filter @pantado/e2e-app stack:anvil   (note rpcUrl in test/e2e-app/.stack.json)
+#   2. ANVIL_RPC=http://host.docker.internal:<port> DEPLOYMENT=../contracts/deployments/e2e.json \
+#      docker compose -f infra/docker-compose.contest.yml -f infra/docker-compose.local.yml --env-file infra/local.env up -d
+# Keys below are Anvil's public development accounts (local chain only); market-data serves seed prices.
+services:
+  caddy:
+    profiles: ["public"] # no TLS / domain locally
+  web:
+    ports: ["127.0.0.1:4003:3000"]
+  api:
+    ports: ["127.0.0.1:3201:3001"]
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC:?set ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+    volumes: ["${DEPLOYMENT:?set DEPLOYMENT}:/deploy/local.json:ro"]
+  indexer:
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+    volumes: ["${DEPLOYMENT}:/deploy/local.json:ro"]
+  market-data:
+    environment:
+      MARKET_DATA_MODE: seed
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+  agent:
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+      AGENT_MANAGER_KEY: ""
+      AGENT_AUTO_MODEL: claude-haiku-5-5
+      AGENT_DEEP_MODEL: claude-sonnet-5-5
+    volumes: ["${DEPLOYMENT}:/deploy/local.json:ro"]
+  price-pusher:
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+      KEEPER_PRICE_PUSHER_KEY: "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a"
+    volumes: ["${DEPLOYMENT}:/deploy/local.json:ro"]
+  rebalance-trigger:
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+      KEEPER_TRIGGER_KEY: "0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba"
+    volumes: ["${DEPLOYMENT}:/deploy/local.json:ro"]
+  auction-filler:
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+      KEEPER_FILLER_KEY: "0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a"
+    volumes: ["${DEPLOYMENT}:/deploy/local.json:ro"]
+  auto-fund:
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+      KEEPER_AUTO_FUND_KEY: "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+      AUTO_FUND_SECRET: local-secret
+    volumes: ["${DEPLOYMENT}:/deploy/local.json:ro"]
+  monitor:
+    environment:
+      EXECUTION_RPC_URL: ${ANVIL_RPC}
+      PANTADO_DEPLOYMENTS: /deploy/local.json
+    volumes: ["${DEPLOYMENT}:/deploy/local.json:ro"]

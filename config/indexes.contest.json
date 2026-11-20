@@ -1,0 +1,294 @@
+{
+ "$comment": "Demo indexes created on Fuji by scripts/seed-demo.ts. Weights in bps (sum 10000). Index level starts at 100.",
+ "indexes": [
+  {
+   "id": "idx-tbb",
+   "name": "Tech + BTC Balanced",
+   "ticker": "TBB",
+   "mode": "Manual",
+   "components": {
+    "nvda": 2500,
+    "msft": 2500,
+    "btcb": 2500,
+    "wavax": 1500,
+    "wethe": 1000
+   },
+   "firstBuyUsd": "100",
+   "visibility": "public",
+   "buys": [
+    {
+     "by": "demo-5",
+     "usd": "400"
+    },
+    {
+     "by": "demo-8",
+     "usd": "150"
+    }
+   ]
+  },
+  {
+   "id": "idx-chip",
+   "name": "AI Chips",
+   "ticker": "CHIP",
+   "mode": "Auto",
+   "driftBps": 2000,
+   "components": {
+    "nvda": 2000,
+    "amd": 2000,
+    "avgo": 2000,
+    "tsm": 2000,
+    "mu": 2000
+   },
+   "firstBuyUsd": "100",
+   "visibility": "public",
+   "buys": [
+    {
+     "by": "demo-1",
+     "usd": "800"
+    },
+    {
+     "by": "demo-6",
+     "usd": "300"
+    }
+   ]
+  },
+  {
+   "id": "idx-mag7",
+   "name": "Magnificent 7",
+   "ticker": "MAG7",
+   "mode": "Auto",
+   "driftBps": 5000,
+   "components": {
+    "aapl": 1429,
+    "msft": 1429,
+    "googl": 1429,
+    "amzn": 1429,
+    "meta": 1428,
+    "nvda": 1428,
+    "tsla": 1428
+   },
+   "firstBuyUsd": "100",
+   "visibility": "public"
+  },
+  {
+   "id": "idx-cstk",
+   "name": "Crypto Stocks + BTC",
+   "ticker": "CSTK",
+   "mode": "Manual",
+   "driftBps": 5000,
+   "components": {
+    "coin": 2500,
+    "mstr": 2500,
+    "crcl": 2500,
+    "btcb": 2500
+   },
+   "firstBuyUsd": "100",
+   "owner": "agent-manager",
+   "visibility": "public"
+  },
+  {
+   "id": "idx-mybk",
+   "name": "My basket",
+   "ticker": "MYBK",
+   "mode": "Manual",
+   "components": {
+    "nvda": 3000,
+    "aapl": 2000,
+    "btcb": 3000,
+    "wavax": 2000
+   },
+   "firstBuyUsd": "100",
+   "visibility": "private",
+   "owner": "deployer"
+  },
+  {
+   "id": "idx-avdex",
+   "name": "Avalanche DEX Index",
+   "ticker": "AVDEX",
+   "mode": "Auto",
+   "driftBps": 2000,
+   "components": {
+    "joe": 3000,
+    "png": 2500,
+    "phar": 2500,
+    "black": 2000
+   },
+   "firstBuyUsd": "500",
+   "visibility": "public",
+   "owner": "demo-1",
+   "description": "🔄 Own the exchanges, not just the trades.\n\nEvery swap on Avalanche pays one of these four DEXs: Trader Joe (JOE), Pangolin (PNG), Pharaoh (PHAR) and Blackhole (BLACK). One token, the whole Avalanche trading floor.\n\n📉 The insight: at launch (Nov 2026) DEX tokens were down 28–50% over 30 days while AVAX itself still trades $38M a day on-chain. Activity stayed, prices fell. This basket is a bet that the gap closes.\n\n⚖️ JOE leads at 30% as the oldest venue; PNG and PHAR 25% each; BLACK 20% as the newcomer. Auto-rebalances when any leg drifts 20%.\n\n⚠️ Small-cap DeFi tokens: expect big swings both ways.",
+   "buys": [
+    {
+     "by": "demo-2",
+     "usd": "750"
+    },
+    {
+     "by": "demo-4",
+     "usd": "300"
+    },
+    {
+     "by": "demo-7",
+     "usd": "1200"
+    }
+   ]
+  },
+  {
+   "id": "idx-avblu",
+   "name": "Avalanche Blue Chips",
+   "ticker": "AVBLU",
+   "mode": "Auto",
+   "driftBps": 1500,
+   "components": {
+    "wavax": 3500,
+    "btcb": 2500,
+    "wethe": 2000,
+    "savax": 1000,
+    "linke": 1000
+   },
+   "firstBuyUsd": "1000",
+   "visibility": "public",
+   "owner": "demo-2",
+   "description": "💎 The five assets that carry Avalanche DeFi.\n\nAVAX, bridged Bitcoin and Ether, staked AVAX and Chainlink: together they make up most of the volume on Avalanche DEXs. These are the coins the rest of the ecosystem is priced against.\n\n📊 The insight: AVAX, BTC.b and WETH.e are the top three by 24h on-chain volume ($38M, $13M and $12M at launch). Deep liquidity means low slippage when you buy, sell or rebalance.\n\n🧱 AVAX anchors at 35%, BTC.b 25%, WETH.e 20%; sAVAX adds staking yield (10%) and LINK.e the oracle layer (10%).\n\n🛡️ The steady core of an Avalanche portfolio. Redeem for the five tokens any time.",
+   "buys": [
+    {
+     "by": "demo-1",
+     "usd": "2000"
+    },
+    {
+     "by": "demo-3",
+     "usd": "500"
+    },
+    {
+     "by": "demo-5",
+     "usd": "850"
+    },
+    {
+     "by": "demo-8",
+     "usd": "400"
+    }
+   ]
+  },
+  {
+   "id": "idx-avmeme",
+   "name": "Avalanche Meme Arena",
+   "ticker": "AVMEME",
+   "mode": "Manual",
+   "components": {
+    "coq": 2500,
+    "kimbo": 2000,
+    "nochill": 2000,
+    "arena": 2000,
+    "nya": 1500
+   },
+   "firstBuyUsd": "200",
+   "visibility": "public",
+   "owner": "demo-3",
+   "description": "🐸🔥 Avalanche memes in one ticket.\n\nCOQ, KIMBO, NOCHILL, ARENA and NYA: the culture coins of the C-Chain. Picking one winner is a lottery; holding the whole arena is a theme.\n\n🎢 The insight: every token here lost 23–34% over 30 days at launch, moving almost together. When sentiment on Avalanche turns, memes tend to move first and furthest. This basket lets you ride that without betting on a single ticker.\n\n🎯 COQ leads at 25% as the largest; the rest 15–20%. The creator updates weights by hand when the meme meta shifts.\n\n☠️ Highest-risk index on Pantado. Only money you can lose.",
+   "buys": [
+    {
+     "by": "demo-6",
+     "usd": "420"
+    },
+    {
+     "by": "demo-8",
+     "usd": "69"
+    },
+    {
+     "by": "demo-5",
+     "usd": "250"
+    }
+   ]
+  },
+  {
+   "id": "idx-defi",
+   "name": "Avalanche DeFi Core",
+   "ticker": "DEFI",
+   "mode": "Auto",
+   "driftBps": 2000,
+   "components": {
+    "qi": 2500,
+    "aavee": 2500,
+    "folks": 2000,
+    "savax": 2000,
+    "linke": 1000
+   },
+   "firstBuyUsd": "300",
+   "visibility": "public",
+   "owner": "demo-4",
+   "description": "🏦 The money markets of Avalanche.\n\nBENQI (QI), Aave (AAVE.e) and Folks Finance (FOLKS) run lending and borrowing on the C-Chain; sAVAX is the liquid-staking collateral they all accept; Chainlink (LINK.e) feeds their prices.\n\n🔍 The insight: FOLKS was one of the few DeFi tokens up over 30 days (+3.7%) at launch while QI fell 37% and AAVE.e 29%. Spreading across protocols keeps one protocol's bad month from sinking the basket.\n\n⚙️ 25% QI, 25% AAVE.e, 20% FOLKS, 20% sAVAX, 10% LINK.e. Auto-rebalances on 20% drift.\n\n📚 A protocol-diversified DeFi position in one token.",
+   "buys": [
+    {
+     "by": "demo-1",
+     "usd": "600"
+    },
+    {
+     "by": "demo-7",
+     "usd": "350"
+    }
+   ]
+  },
+  {
+   "id": "idx-hedge",
+   "name": "Digital Gold Hedge",
+   "ticker": "HEDGE",
+   "mode": "Auto",
+   "driftBps": 1000,
+   "components": {
+    "xaut0": 4000,
+    "btcb": 3000,
+    "usdt": 1500,
+    "eurc": 1500
+   },
+   "firstBuyUsd": "1000",
+   "visibility": "public",
+   "owner": "demo-5",
+   "description": "🥇₿ Old gold, new gold, and cash.\n\nTokenized gold (XAUt0), Bitcoin (BTC.b) and two stablecoins (USDt, EURC): a defensive basket for rough markets, all on Avalanche.\n\n🧭 The insight: over the 30 days before launch, gold token XAUt0 fell only 7.5% while BTC.b fell 20% and AVAX 27%. The stablecoins held their peg. Mixing them softens drawdowns versus holding crypto alone.\n\n⚖️ 40% gold, 30% Bitcoin, 15% dollar, 15% euro. Tight auto-rebalance (10% drift) keeps the hedge in shape.\n\n🌙 For when you want to stay on-chain but sleep at night.",
+   "buys": [
+    {
+     "by": "demo-2",
+     "usd": "1500"
+    },
+    {
+     "by": "demo-6",
+     "usd": "700"
+    },
+    {
+     "by": "demo-8",
+     "usd": "250"
+    }
+   ]
+  },
+  {
+   "id": "idx-wsavx",
+   "name": "Wall Street x Avalanche",
+   "ticker": "WSAVX",
+   "mode": "Manual",
+   "components": {
+    "nvda": 2000,
+    "aapl": 1500,
+    "coin": 1500,
+    "btcb": 2000,
+    "wavax": 2000,
+    "xaut0": 1000
+   },
+   "firstBuyUsd": "500",
+   "visibility": "public",
+   "owner": "demo-6",
+   "description": "🏛️⛓️ Stocks, Bitcoin, gold and AVAX in one token.\n\nNVIDIA, Apple and Coinbase as tokenized stocks, next to BTC.b, AVAX and tokenized gold. The real-world assets your brokerage holds and the crypto it does not, in a single basket you can redeem in kind.\n\n🌐 The insight: tokenized stocks now trade on-chain around the clock. Pairing them with crypto lets one index hold assets that usually live in two separate accounts.\n\n📐 NVDA 20%, AAPL 15%, COIN 15%, BTC.b 20%, AVAX 20%, gold 10%.\n\n🧪 Stock prices come from Robinhood Chain until permissionless stock pools launch on Avalanche.",
+   "buys": [
+    {
+     "by": "demo-3",
+     "usd": "900"
+    },
+    {
+     "by": "demo-4",
+     "usd": "450"
+    },
+    {
+     "by": "demo-7",
+     "usd": "600"
+    }
+   ]
+  }
+ ]
+}

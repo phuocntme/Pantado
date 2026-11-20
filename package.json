@@ -1,0 +1,17 @@
+{
+  "name": "pantado",
+  "private": true,
+  "author": "phuocntme",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@12.5.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "gen:config": "pnpm --filter @pantado/scripts gen:config",
+    "gen:config:check": "pnpm --filter @pantado/scripts gen:config --check",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  }
+}

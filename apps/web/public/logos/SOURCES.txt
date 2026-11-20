@@ -1,0 +1,7 @@
+Avalanche tokens: matched by contract address in public GitHub token-logo repositories:
+  trustwallet/assets (avalanchec), traderjoe-xyz/joe-tokenlists, pharaohexchange/pharaoh-assets.
+  usde, super: same-brand logos taken from Trust Wallet (Ethereum) because no high-resolution Avalanche copy was available.
+Stocks: nvstly/icons (PNG, with white variants used for dark backgrounds: aapl, amzn, hims, pltr, rblx).
+  spcx, crcl: single-color SVGs from simple-icons.
+Wallets / social: core = ava-labs/core-extension; metamask = MetaMask/metamask-extension;
+  walletconnect = WalletConnect/walletconnect-assets; google = firebase/firebaseui-web; x = simple-icons.

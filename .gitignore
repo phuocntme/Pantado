@@ -1,0 +1,34 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+# foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+contracts/deployments/anvil.json
+contracts/deployments/anvil-*.json
+contracts/foundry-pp/
+src/generated/
+.stack.json
+contracts/deployments/e2e.json
+test-results/
+test/e2e-app/acceptance-report.json
+infra/local.env
+test/e2e-app/.market-history*.json*
+
+# agent eval runs (answers, costs)
+services/agent/eval/results/
+
+# local Fuji stack data (market history copy)
+infra/.fuji-local/
+
+# build caches
+.next/
+.ponder/
+*.tsbuildinfo
+next-env.d.ts

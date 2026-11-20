@@ -1,0 +1,2494 @@
+{
+ "$comment": "Single source of truth for assets (spec §4). Every other list is generated from this file by `pnpm gen:config`. Addresses with confirmed:false must be verified (explorer + cast call) before use. seedUsd only seeds Fuji test tokens; the price pusher overwrites it. logoURI: optional image URL; the app falls back to a two-letter avatar.",
+ "version": 1,
+ "assets": [
+  {
+   "id": "usdc",
+   "symbol": "USDC",
+   "name": "USD Coin",
+   "kind": "quote",
+   "decimals": 6,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "confirmed": true,
+    "source": "fixed"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true
+    },
+    "avalanche": { "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E", "confirmed": true }
+   },
+   "price": {
+    "canonical": "fixed",
+    "fixedUsd": "1",
+    "crossCheck": null,
+    "maxAgeSec": 0,
+    "bandMinUsd": "1",
+    "bandMaxUsd": "1"
+   },
+   "venue": {
+    "contest": null,
+    "production": null
+   },
+   "logoURI": null
+  },
+  {
+   "id": "wavax",
+   "symbol": "WAVAX",
+   "name": "Wrapped AVAX",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "feed"
+    },
+    "avalanche": { "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": "chainlink:AVAX/USD",
+    "seedUsd": "7.169",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "1.434",
+    "bandMaxUsd": "35.84"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "btcb",
+   "symbol": "BTC.b",
+   "name": "Bitcoin (Avalanche bridged)",
+   "kind": "token",
+   "decimals": 8,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x152b9d0FdC40C096757F570A51E494bd4b943E50", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": "chainlink:BTC/USD",
+    "seedUsd": "64622",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "12924",
+    "bandMaxUsd": "323110"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "wethe",
+   "symbol": "WETH.e",
+   "name": "Wrapped Ether (bridged)",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": "chainlink:ETH/USD",
+    "seedUsd": "1809",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "361.8",
+    "bandMaxUsd": "9045"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "savax",
+   "symbol": "sAVAX",
+   "name": "Staked AVAX",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "9.239",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "1.848",
+    "bandMaxUsd": "46.2"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "joe",
+   "symbol": "JOE",
+   "name": "JOE",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.02168",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.004336",
+    "bandMaxUsd": "0.1084"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "usdt",
+   "symbol": "USDt",
+   "name": "Tether USD",
+   "kind": "token",
+   "decimals": 6,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.9992",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.1998",
+    "bandMaxUsd": "4.996"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "eurc",
+   "symbol": "EURC",
+   "name": "Euro Coin",
+   "kind": "token",
+   "decimals": 6,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xC891EB4cbdEFf6e073e859e987815Ed1505c2ACD",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xC891EB4cbdEFf6e073e859e987815Ed1505c2ACD", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "1.101",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.2202",
+    "bandMaxUsd": "5.505"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "phar",
+   "symbol": "PHAR",
+   "name": "Pharaoh",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x13A466998Ce03Db73aBc2d4DF3bBD845Ed1f28E7",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x13A466998Ce03Db73aBc2d4DF3bBD845Ed1f28E7", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.04031",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.008062",
+    "bandMaxUsd": "0.2016"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "ausd",
+   "symbol": "AUSD",
+   "name": "AUSD",
+   "kind": "token",
+   "decimals": 6,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.9999",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.2",
+    "bandMaxUsd": "5"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "usde",
+   "symbol": "USDe",
+   "name": "USDe",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.9994",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.1999",
+    "bandMaxUsd": "4.997"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "wbtce",
+   "symbol": "WBTC.e",
+   "name": "Wrapped BTC (Avalanche bridged)",
+   "kind": "token",
+   "decimals": 8,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x50b7545627a5162F82A992c33b87aDc75187B218",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x50b7545627a5162F82A992c33b87aDc75187B218", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "64464",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "12893",
+    "bandMaxUsd": "322320"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "super",
+   "symbol": "SUPER",
+   "name": "SuperVerse",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x09Fa58228bB791ea355c90DA1e4783452b9Bd8C3",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x09Fa58228bB791ea355c90DA1e4783452b9Bd8C3", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.1341",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.02682",
+    "bandMaxUsd": "0.6705"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "coq",
+   "symbol": "COQ",
+   "name": "COQINU",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x420FcA0121DC28039145009570975747295f2329",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x420FcA0121DC28039145009570975747295f2329", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.00000008177",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.00000001635",
+    "bandMaxUsd": "0.0000004089"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "black",
+   "symbol": "BLACK",
+   "name": "BLACKHOLE",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xcd94a87696FAC69Edae3a70fE5725307Ae1c43f6",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xcd94a87696FAC69Edae3a70fE5725307Ae1c43f6", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.002063",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.0004126",
+    "bandMaxUsd": "0.01032"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "aavee",
+   "symbol": "AAVE.e",
+   "name": "Aave Token (Avalanche bridged)",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "108.7",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "21.74",
+    "bandMaxUsd": "543.5"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "xava",
+   "symbol": "XAVA",
+   "name": "Avalaunch",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xd1c3f94DE7e5B45fa4eDBBA472491a9f4B166FC4",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xd1c3f94DE7e5B45fa4eDBBA472491a9f4B166FC4", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.09992",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.01998",
+    "bandMaxUsd": "0.4996"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "qi",
+   "symbol": "QI",
+   "name": "BENQI",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.001475",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.000295",
+    "bandMaxUsd": "0.007375"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "png",
+   "symbol": "PNG",
+   "name": "Pangolin",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x60781C2586D68229fde47564546784ab3fACA982", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.02114",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.004228",
+    "bandMaxUsd": "0.1057"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "arena",
+   "symbol": "ARENA",
+   "name": "Arena",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.0004671",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.00009342",
+    "bandMaxUsd": "0.002335"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "frax",
+   "symbol": "FRAX",
+   "name": "Frax",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.9908",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.1982",
+    "bandMaxUsd": "4.954"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "daie",
+   "symbol": "DAI.e",
+   "name": "Dai Stablecoin (Avalanche bridged)",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "1.002",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.2004",
+    "bandMaxUsd": "5.01"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "gohm",
+   "symbol": "gOHM",
+   "name": "Governance OHM",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x321E7092a180BB43555132ec53AaA65a5bF84251",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x321E7092a180BB43555132ec53AaA65a5bF84251", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "4161",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "832.2",
+    "bandMaxUsd": "20805"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "mim",
+   "symbol": "MIM",
+   "name": "Magic Internet Money",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x130966628846BFd36ff31a822705796e8cb8C18D", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.0249",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.00498",
+    "bandMaxUsd": "0.1245"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "beam",
+   "symbol": "BEAM",
+   "name": "Beam",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.004329",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.0008658",
+    "bandMaxUsd": "0.02165"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "linke",
+   "symbol": "LINK.e",
+   "name": "Chainlink Token (Avalanche bridged)",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x5947BB275c521040051D82396192181b413227A3",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x5947BB275c521040051D82396192181b413227A3", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "9.113",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "1.823",
+    "bandMaxUsd": "45.56"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "spcm",
+   "symbol": "SPCM",
+   "name": "SPACEM WORLD",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x7Cc9c624Efa62C2Decf0a2a028f7885eCea95A17",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x7Cc9c624Efa62C2Decf0a2a028f7885eCea95A17", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.000837",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.0001674",
+    "bandMaxUsd": "0.004185"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "nya",
+   "symbol": "NYA",
+   "name": "Nya",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x38F9bf9dCe51833Ec7f03C9dC218197999999999",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x38F9bf9dCe51833Ec7f03C9dC218197999999999", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.00000003868",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.000000007736",
+    "bandMaxUsd": "0.0000001934"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "peak",
+   "symbol": "PEAK",
+   "name": "Peak",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xe916BeB9ADdfEcC2c7C12C241d8EC65e0c55897F",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xe916BeB9ADdfEcC2c7C12C241d8EC65e0c55897F", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.005244",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.001049",
+    "bandMaxUsd": "0.02622"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "p33",
+   "symbol": "p33",
+   "name": "Pharaoh Liquid Staking Token",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x26e9dbe75aed331E41272BEcE932Ff1B48926Ca9",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x26e9dbe75aed331E41272BEcE932Ff1B48926Ca9", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.06625",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.01325",
+    "bandMaxUsd": "0.3313"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "nochill",
+   "symbol": "NOCHILL",
+   "name": "AVAX HAS NO CHILL",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xAcFb898Cff266E53278cC0124fC2C7C94C8cB9a5",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xAcFb898Cff266E53278cC0124fC2C7C94C8cB9a5", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.0002158",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.00004316",
+    "bandMaxUsd": "0.001079"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "kimbo",
+   "symbol": "KIMBO",
+   "name": "Kimbo",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x184ff13B3EBCB25Be44e860163A5D8391Dd568c1",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x184ff13B3EBCB25Be44e860163A5D8391Dd568c1", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "0.000002171",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.0000004342",
+    "bandMaxUsd": "0.00001086"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "folks",
+   "symbol": "FOLKS",
+   "name": "Folks Finance",
+   "kind": "token",
+   "decimals": 6,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xFF7F8F301F7A706E3CfD3D2275f5dc0b9EE8009B",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xFF7F8F301F7A706E3CfD3D2275f5dc0b9EE8009B", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "2.183",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.4366",
+    "bandMaxUsd": "10.91"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "mqt",
+   "symbol": "MQT",
+   "name": "MoveQuest",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xef0cdae2FfEEeFA539a244a16b3f46ba75b8c810",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xef0cdae2FfEEeFA539a244a16b3f46ba75b8c810", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "2.484",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "0.4968",
+    "bandMaxUsd": "12.42"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "solvbtc",
+   "symbol": "SolvBTC",
+   "name": "Solv BTC",
+   "kind": "token",
+   "decimals": 18,
+   "display": {
+    "chain": "avalanche",
+    "address": "0xbc78D84Ba0c46dFe32cf2895a19939c86b81a777",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0xbc78D84Ba0c46dFe32cf2895a19939c86b81a777", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "64348",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "12870",
+    "bandMaxUsd": "321740"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "xaut0",
+   "symbol": "XAUt0",
+   "name": "XAUt0 (Tether Gold)",
+   "kind": "token",
+   "decimals": 6,
+   "display": {
+    "chain": "avalanche",
+    "address": "0x2775d5105276781B4b85bA6eA6a6653bEeD1dd32",
+    "confirmed": true,
+    "source": "price-engine"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "mock": true,
+     "priceSource": "push"
+    },
+    "avalanche": { "address": "0x2775d5105276781B4b85bA6eA6a6653bEeD1dd32", "confirmed": true }
+   },
+   "price": {
+    "canonical": "avalanche-price-engine",
+    "crossCheck": null,
+    "seedUsd": "3840",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "768",
+    "bandMaxUsd": "19200"
+   },
+   "venue": {
+    "contest": "token-venue",
+    "production": "dex-venue"
+   },
+   "risk": {
+    "spreadBps": 30
+   },
+   "circulatingSupply": null,
+   "logoURI": null
+  },
+  {
+   "id": "nvda",
+   "symbol": "NVDA",
+   "name": "NVIDIA",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+    "referencePool": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pNVDA",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:NVDA",
+    "seedUsd": "162.7",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "32.54",
+    "bandMaxUsd": "813.5"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "spcx",
+   "symbol": "SPCX",
+   "name": "Space Exploration Technologies",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
+    "referencePool": "0xEb07d9587eFD1778dFb9c385Ec43EF6d5F9fE401",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pSPCX",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:SPCX",
+    "seedUsd": "140.5",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "28.1",
+    "bandMaxUsd": "702.5"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "aapl",
+   "symbol": "AAPL",
+   "name": "Apple",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+    "referencePool": "0xAae0d815EE56e4092a5E5C2911E676Fea50B2d6D",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pAAPL",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:AAPL",
+    "seedUsd": "357.9",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "71.58",
+    "bandMaxUsd": "1790"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "msft",
+   "symbol": "MSFT",
+   "name": "Microsoft",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+    "referencePool": "0xeb60bCD1D920ad6E102690CCFC6fB488899E1510",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pMSFT",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:MSFT",
+    "seedUsd": "525.3",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "105.1",
+    "bandMaxUsd": "2627"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "googl",
+   "symbol": "GOOGL",
+   "name": "Alphabet Class A",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+    "referencePool": "0x34D0dC122CF9A8Eb296fC5e0D3A233625D7d19b7",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pGOOGL",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:GOOGL",
+    "seedUsd": "293.7",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "58.74",
+    "bandMaxUsd": "1469"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "amzn",
+   "symbol": "AMZN",
+   "name": "Amazon",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+    "referencePool": "0x8AC92DA74AB5F3b1d024Dc1943Ad7e15Dc4179Ef",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pAMZN",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:AMZN",
+    "seedUsd": "263.4",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "52.68",
+    "bandMaxUsd": "1317"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "meta",
+   "symbol": "META",
+   "name": "Meta Platforms",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+    "referencePool": "0x107a7Cb40d8665360ba10E59471Af06150A50922",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pMETA",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:META",
+    "seedUsd": "633.5",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "126.7",
+    "bandMaxUsd": "3168"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "tsla",
+   "symbol": "TSLA",
+   "name": "Tesla",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+    "referencePool": "0xf4ACdAEEB7022862A763C9B1B885e11191c889E3",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pTSLA",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:TSLA",
+    "seedUsd": "385.5",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "77.1",
+    "bandMaxUsd": "1928"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "avgo",
+   "symbol": "AVGO",
+   "name": "Broadcom",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x156E175DD063a8cE274C50654eF40e0032b3fbcF",
+    "referencePool": "0x5B7C404f1d7d77F9f3885aB13d7764F8a173028c",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pAVGO",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:AVGO",
+    "seedUsd": "337",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "67.4",
+    "bandMaxUsd": "1685"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "amd",
+   "symbol": "AMD",
+   "name": "AMD",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC",
+    "referencePool": "0x48D284A2A4d3DC1b3Da08231Fe44317e7e7Aa51f",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pAMD",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:AMD",
+    "seedUsd": "514.1",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "102.8",
+    "bandMaxUsd": "2571"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "tsm",
+   "symbol": "TSM",
+   "name": "Taiwan Semiconductor",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x58FfE4a942d3885bAa22D7520691F611EF09e7AA",
+    "referencePool": "0x07e8Ea83D4C1340774c8965125e26e12bf943bf1",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pTSM",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:TSM",
+    "seedUsd": "384.3",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "76.86",
+    "bandMaxUsd": "1922"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "mstr",
+   "symbol": "MSTR",
+   "name": "Strategy",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xec262a75e413fAfD0dF80480274532C79D42da09",
+    "referencePool": "0x17578C0e0D15da44f31677263114F71aE76653EA",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pMSTR",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:MSTR",
+    "seedUsd": "103.2",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "20.64",
+    "bandMaxUsd": "516"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "coin",
+   "symbol": "COIN",
+   "name": "Coinbase",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x6330D8C3178a418788dF01a47479c0ce7CCF450b",
+    "referencePool": "0x3a6eC0aa6C702323414d449B5F60f4B742A82dED",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pCOIN",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:COIN",
+    "seedUsd": "120.2",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "24.04",
+    "bandMaxUsd": "601"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "pltr",
+   "symbol": "PLTR",
+   "name": "Palantir Technologies",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+    "referencePool": "0x851680416A4f4E1c463d45171d61ACDdBc8554c0",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pPLTR",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:PLTR",
+    "seedUsd": "166.7",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "33.34",
+    "bandMaxUsd": "833.5"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "crcl",
+   "symbol": "CRCL",
+   "name": "Circle Internet Group",
+   "kind": "stock",
+   "tier": 1,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5",
+    "referencePool": "0x654E4143e82a5824445Ade0824351C2A9ACD95a8",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pCRCL",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:CRCL",
+    "seedUsd": "58.12",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "11.62",
+    "bandMaxUsd": "290.6"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 25000,
+    "oiCapUsd": 250000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "mu",
+   "symbol": "MU",
+   "name": "Micron Technology",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xfF080c8ce2E5feadaCa0Da81314Ae59D232d4afD",
+    "referencePool": "0xd057B1Bc54917855BBee58eAd58647f47caB35E5",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pMU",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:MU",
+    "seedUsd": "747.8",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "149.6",
+    "bandMaxUsd": "3739"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "dell",
+   "symbol": "DELL",
+   "name": "Dell Technologies",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x941AE714EC6D8130c7B75d67160Ca08f1e7d11Dd",
+    "referencePool": "0xc30c89cB7815A1488b7998D15eEC73961707Fc5a",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pDELL",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:DELL",
+    "seedUsd": "334.8",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "66.96",
+    "bandMaxUsd": "1674"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "lly",
+   "symbol": "LLY",
+   "name": "Eli Lilly",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x8005d266423c7ea827372c9c864491e5786600ea",
+    "referencePool": "0xF4274130137eeE20bAD928B593d992716516CEB9",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pLLY",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:LLY",
+    "seedUsd": "1453.16",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "290.632",
+    "bandMaxUsd": "7265.8"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "hims",
+   "symbol": "HIMS",
+   "name": "Hims & Hers Health",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xCceE82fE024c36fA15E1005edE3E9e4787e23D09",
+    "referencePool": "0xC8C90d3a1c1a24967E773ac2aD0d456BA3E31F64",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pHIMS",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:HIMS",
+    "seedUsd": "20.03",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "4.006",
+    "bandMaxUsd": "100.15"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "cost",
+   "symbol": "COST",
+   "name": "Costco",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x4EA005168D7F09a7A0Ba9D1DEf21a479950E44C2",
+    "referencePool": "0x0a2121A50A09eD0796ae81F9c53fF9398355a398",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pCOST",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:COST",
+    "seedUsd": "1117",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "223.4",
+    "bandMaxUsd": "5585"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "baba",
+   "symbol": "BABA",
+   "name": "Alibaba",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4",
+    "referencePool": "0x9EDa4BCb3EBfEdE532f3cAE3864fC0CEFff782Aa",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pBABA",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:BABA",
+    "seedUsd": "92.48",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "18.5",
+    "bandMaxUsd": "462.4"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "gme",
+   "symbol": "GME",
+   "name": "GameStop",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x1b0E319c6A659F002271B69dB8A7df2F911c153E",
+    "referencePool": "0xE9713f453aDB9245B19559790c96F470a18F2fDF",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pGME",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:GME",
+    "seedUsd": "25.46",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "5.092",
+    "bandMaxUsd": "127.3"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "rddt",
+   "symbol": "RDDT",
+   "name": "Reddit",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x05b37Fb53A299a1b874A619e1c4C404D52C36F4C",
+    "referencePool": "0xa8744E76aED23B05F0126335E7BD38f7935D19fe",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pRDDT",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:RDDT",
+    "seedUsd": "102.68",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "20.536",
+    "bandMaxUsd": "513.4"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "rblx",
+   "symbol": "RBLX",
+   "name": "Roblox",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0xF0C4BF4C582cb3836e98394b1d4e7B7281101bE8",
+    "referencePool": "0x2ef5945cd5664876b6481FdacFaA2942995a4DA8",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pRBLX",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:RBLX",
+    "seedUsd": "52.21",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "10.442",
+    "bandMaxUsd": "261.05"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  },
+  {
+   "id": "ttwo",
+   "symbol": "TTWO",
+   "name": "Take-Two Interactive",
+   "kind": "stock",
+   "tier": 2,
+   "decimals": 18,
+   "display": {
+    "chain": "robinhood",
+    "token": "0x5e81213613b6B86EaB4c6c50d718d34359459786",
+    "referencePool": "0xD9Ab4b7fAe6DC2f7020134Ec744A8F53Ef3E5E24",
+    "dex": "uniswap-v3",
+    "confirmed": true,
+    "source": "reference-market",
+    "badge": "Reference market: Robinhood Chain (on-chain)"
+   },
+   "execution": {
+    "fuji": {
+     "address": "deploy",
+     "pToken": "pTTWO",
+     "priceSource": "push"
+    },
+    "avalanche": {
+     "address": null
+    }
+   },
+   "price": {
+    "canonical": "robinhood-reference-twap60",
+    "crossCheck": "stock-api:TTWO",
+    "seedUsd": "235.1",
+    "maxAgeSec": 3600,
+    "bandMinUsd": "47.02",
+    "bandMaxUsd": "1176"
+   },
+   "venue": {
+    "contest": "stock-venue",
+    "production": "stock-venue"
+   },
+   "risk": {
+    "sizeCapUsd": 5000,
+    "oiCapUsd": 50000,
+    "spreadBps": 15
+   },
+   "logoURI": null
+  }
+ ]
+}

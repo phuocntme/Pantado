@@ -1,0 +1,27 @@
+{
+  "name": "@pantado/indexer",
+  "version": "0.1.0",
+  "private": true,
+  "author": "phuocntme",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "ponder dev",
+    "start": "ponder start",
+    "codegen": "ponder codegen",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@pantado/sdk": "workspace:*",
+    "@pantado/shared": "workspace:*",
+    "hono": "^4.13.18",
+    "ponder": "^0.18.8",
+    "viem": "^2.57.19"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
